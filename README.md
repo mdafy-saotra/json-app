@@ -1,4 +1,4 @@
-# How to Export Your CommCare App Source
+# How to Fork Your CommCare App Source
 
 ## Step 1 — Find your App ID
 
