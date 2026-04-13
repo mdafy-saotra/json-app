@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns:orx="http://openrosa.org/jr/xforms" xmlns="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:vellum="http://commcarehq.org/xforms/vellum">
+	<h:head>
+		<h:title>Supprimer Acteur</h:title>
+		<model>
+			<instance>
+				<data xmlns:jrm="http://dev.commcarehq.org/jr/xforms" xmlns="http://openrosa.org/formdesigner/1136737C-7D90-49E3-BC9D-5C2D7F998157" uiVersion="1" version="1" name="Supprimer Acteur">
+					<choose_action />
+					<grp_delete>
+						<label_info_worker />
+						<confirm_deletion />
+						<raison_suppression />
+					</grp_delete>
+				</data>
+			</instance>
+			<instance src="jr://instance/casedb" id="casedb" />
+			<instance src="jr://instance/session" id="commcaresession" />
+			<bind vellum:nodeset="#form/choose_action" nodeset="/data/choose_action" required="true()" />
+			<bind vellum:nodeset="#form/grp_delete" nodeset="/data/grp_delete" vellum:relevant="#form/choose_action = 'Oui'" relevant="/data/choose_action = 'Oui'" />
+			<bind vellum:nodeset="#form/grp_delete/label_info_worker" nodeset="/data/grp_delete/label_info_worker" />
+			<bind vellum:nodeset="#form/grp_delete/confirm_deletion" nodeset="/data/grp_delete/confirm_deletion" required="true()" />
+			<bind vellum:nodeset="#form/grp_delete/raison_suppression" nodeset="/data/grp_delete/raison_suppression" type="xsd:string" />
+			<itext>
+				<translation lang="fra" default="">
+					<text id="choose_action-label">
+						<value>Voulez-vous supprimer le travailleur ?</value>
+					</text>
+					<text id="choose_action-Oui-label">
+						<value>Oui</value>
+					</text>
+					<text id="choose_action-Non-label">
+						<value>Non</value>
+					</text>
+					<text id="grp_delete-label">
+						<value>Supprimer le travailleur</value>
+					</text>
+					<text id="grp_delete/label_info_worker-label">
+						<value>* Nom complet : **<output value="instance('casedb')/casedb/case[@case_id = instance('commcaresession')/session/data/case_id]/nom_complet" vellum:value="#case/nom_complet" />**
+* Numéro de téléphone : **<output value="instance('casedb')/casedb/case[@case_id = instance('commcaresession')/session/data/case_id]/telephone_mm" vellum:value="#case/telephone_mm" />**</value>
+						<value form="markdown">* Nom complet : **<output value="instance('casedb')/casedb/case[@case_id = instance('commcaresession')/session/data/case_id]/nom_complet" vellum:value="#case/nom_complet" />**
+* Numéro de téléphone : **<output value="instance('casedb')/casedb/case[@case_id = instance('commcaresession')/session/data/case_id]/telephone_mm" vellum:value="#case/telephone_mm" />**</value>
+					</text>
+					<text id="grp_delete/confirm_deletion-label">
+						<value>*Cette action est irréversible sur votre application. Vous devrez contacter un administrateur*
+
+**Êtes-vous sûr de vouloir supprimer ce collaborateur ?**</value>
+						<value form="markdown">*Cette action est irréversible sur votre application. Vous devrez contacter un administrateur*
+
+**Êtes-vous sûr de vouloir supprimer ce collaborateur ?**</value>
+					</text>
+					<text id="grp_delete/confirm_deletion-yes-label">
+						<value>Oui</value>
+					</text>
+					<text id="grp_delete/confirm_deletion-no-label">
+						<value>Non</value>
+					</text>
+					<text id="grp_delete/raison_suppression-label">
+						<value>Pourquoi voulez-vous supprimer ce travailleur?</value>
+					</text>
+				</translation>
+			</itext>
+		</model>
+		<vellum:hashtags>{&quot;#case/nom_complet&quot;:null,&quot;#case/telephone_mm&quot;:null}</vellum:hashtags>
+		<vellum:hashtagTransforms>{&quot;prefixes&quot;:{&quot;#case/&quot;:&quot;instance('casedb')/casedb/case[@case_id = instance('commcaresession')/session/data/case_id]/&quot;,&quot;#user/&quot;:&quot;instance('casedb')/casedb/case[@case_type = 'commcare-user'][hq_user_id = instance('commcaresession')/session/context/userid]/&quot;}}</vellum:hashtagTransforms>
+	</h:head>
+	<h:body>
+		<select1 vellum:ref="#form/choose_action" ref="/data/choose_action">
+			<label ref="jr:itext('choose_action-label')" />
+			<item>
+				<label ref="jr:itext('choose_action-Oui-label')" />
+				<value>Oui</value>
+			</item>
+			<item>
+				<label ref="jr:itext('choose_action-Non-label')" />
+				<value>Non</value>
+			</item>
+		</select1>
+		<group vellum:ref="#form/grp_delete" ref="/data/grp_delete" appearance="field-list">
+			<label ref="jr:itext('grp_delete-label')" />
+			<trigger vellum:ref="#form/grp_delete/label_info_worker" ref="/data/grp_delete/label_info_worker" appearance="minimal">
+				<label ref="jr:itext('grp_delete/label_info_worker-label')" />
+			</trigger>
+			<select1 vellum:ref="#form/grp_delete/confirm_deletion" ref="/data/grp_delete/confirm_deletion">
+				<label ref="jr:itext('grp_delete/confirm_deletion-label')" />
+				<item>
+					<label ref="jr:itext('grp_delete/confirm_deletion-yes-label')" />
+					<value>yes</value>
+				</item>
+				<item>
+					<label ref="jr:itext('grp_delete/confirm_deletion-no-label')" />
+					<value>no</value>
+				</item>
+			</select1>
+			<input vellum:ref="#form/grp_delete/raison_suppression" ref="/data/grp_delete/raison_suppression">
+				<label ref="jr:itext('grp_delete/raison_suppression-label')" />
+			</input>
+		</group>
+	</h:body>
+</h:html>
