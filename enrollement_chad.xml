@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<h:html xmlns:h="http://www.w3.org/1999/xhtml" xmlns:orx="http://openrosa.org/jr/xforms" xmlns="http://www.w3.org/2002/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:jr="http://openrosa.org/javarosa" xmlns:vellum="http://commcarehq.org/xforms/vellum">
+	<h:head>
+		<h:title>Enrôler Acteur</h:title>
+		<model>
+			<instance>
+				<data xmlns:jrm="http://dev.commcarehq.org/jr/xforms" xmlns="http://openrosa.org/formdesigner/5D278DF0-6DFD-46B3-BF54-3B6CF46904BB" uiVersion="1" version="1" name="Enrôler Acteur">
+					<var>
+						<commcare_project />
+						<idSequence />
+						<signature />
+						<padded_idSequence />
+						<idworker vellum:comment="concat(substr(string(/data/var/idSequence), string-length(string(/data/var/idSequence)) - 5, 4))&#10;&#10;concat(/data/informations_gographiques/region_numero, /data/informations_gographiques/district_numero, /data/health_aera, /data/informations_gographiques/id_utilisateur, /data/var/padded_idSequence)" />
+						<statut />
+						<date_enrolement />
+						<date_enrolement_format />
+						<user_derniere_date_enrolement />
+						<compte_enrolement_ajd vellum:comment="=--  if(today() = date(#user/user_derniere_date_enrolement), int(#user/compte_enrolement_ajd) + 1, 1)" />
+						<nom_complet />
+						<userid_c />
+						<form_instance />
+						<photo_signature />
+						<url_photo_id />
+						<url_photo_nin />
+						<url_photo_signature />
+						<url_photo_id_ucr />
+						<url_photo_nin_ucr />
+						<url_photo_signature_ucr />
+						<nom_unique />
+						<concat_nom_prenom_dob />
+						<gps>
+							<commcare_gps_point />
+							<gps_latitude />
+							<gps_longitude />
+							<gps_precision />
+						</gps>
+					</var>
+					<kyc_status />
+					<kyc_comment />
+					<location_information>
+						<location_id />
+						<location_code />
+						<location_type />
+						<location_nom />
+						<pays_id />
+						<pays_code />
+						<pays_nom />
+						<region_id />
+						<region_nom />
+						<region_code />
+						<district_id />
+						<district_code />
+						<district_nom />
+						<csi_id />
+						<csi_code />
+						<csi_nom />
+						<worker_location_id />
+						<worker_location_code />
+						<worker_location_nom />
+						<id_utilisateur />
+						<deviceid />
+					</location_information>
+					<grp_identite>
+						<piece_valide vellum:comment="- Ancienne question : &quot;Disposez-vous d'une pièce d'identité en cours de validité ?&quot;&#10;- Changé par une hidden value = 'oui' pour le pilote de Niamey.&#10;À remettre lorsque le pilote de Niamey sera terminé." />
+						<piece_valide_grp>
+							<type_piece />
+							<nin_id />
+							<photo_nin />
+							<photo_nin_value />
+							<photo__output_valuedatagrp_identitephoto_value__fra />
+						</piece_valide_grp>
+					</grp_identite>
+					<grp_verification_nin>
+						<label_deja_enregistre />
+						<warnning_deja_enregistre />
+					</grp_verification_nin>
+					<grp_kyc_checks>
+						<moov_sera_loperateur_pour_le_paiement_de_la_campagne />
+						<op_telecom_mm_avec_piece />
+						<op_telecom_mobile_money vellum:comment="#form/grp_kyc_checks/op_telecom_mm_avec_piece" />
+						<op_telecom_mobile_money_display />
+						<op_telecom vellum:comment="#form/grp_kyc_checks/op_telecom_mm_avec_piece" />
+						<op_telecom_display />
+						<kyc_validated_display />
+					</grp_kyc_checks>
+					<contact>
+						<telephone_mm vellum:comment="string-length(string(.)) = 8 and (regex(., '^[96|97|98|99|89|88|87|86|77|76]{6}$') or regex(., '^[95| 94| 84| 85| 74| 75]{6}$') or regex(., '^[90| 91| 92| 80| 81| 82]{6}$') or regex(., '^[93]{6}$'))" />
+						<label_telco />
+						<label_deja_enregistre />
+						<moov_regex />
+						<airtel_regex />
+						<numero_existe />
+						<numero_existe_nom_complet />
+						<nom_prenom_dob_existe />
+						<nin_existe />
+						<telephone_indicatif />
+						<est_ce_que_ce_numero_vous_appartient />
+						<veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero />
+						<si_autres_dcrire_la_relation />
+						<veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero />
+						<moov_kyc_code_display />
+						<airtel_kyc_code_display />
+					</contact>
+					<grp_info_socio>
+						<worker_information>
+							<nom />
+							<prenom />
+							<date_de_naissance />
+							<dob_display />
+							<lieu_naissance />
+							<nom_prenom_dob_existe_lbl />
+							<nom_majuscule />
+							<prenom_format />
+							<lieu_naissance_maj />
+						</worker_information>
+						<gender />
+					</grp_info_socio>
+					<photo>
+						<photo />
+						<worker_photo_value />
+					</photo>
+					<qualif_fonction>
+						<fonction_type_code />
+						<fonction_type_code_display />
+						<fonction_code />
+						<fonction_autre />
+						<fonction />
+						<fonction_display />
+					</qualif_fonction>
+					<survey>
+						<nombre_de_spots />
+					</survey>
+					<grp_resume>
+						<label_resume_1 />
+						<consentement_worker />
+						<signature />
+						<date_dob_display />
+					</grp_resume>
+					<properties_display>
+						<type_piece_display />
+						<niveau_display />
+					</properties_display>
+				</data>
+			</instance>
+			<instance src="jr://instance/session" id="commcaresession" />
+			<instance src="jr://fixture/locations" id="locations" />
+			<instance src="jr://instance/casedb" id="casedb" />
+			<instance src="jr://fixture/item-list:worker_fonction_type" id="worker_fonction_type" />
+			<instance src="jr://fixture/item-list:worker_fonction" id="worker_fonction" />
+			<bind vellum:nodeset="#form/var" nodeset="/data/var" />
+			<bind vellum:nodeset="#form/var/commcare_project" nodeset="/data/var/commcare_project" />
+			<bind vellum:nodeset="#form/var/idSequence" nodeset="/data/var/idSequence" vellum:calculate="coalesce(#user/idSequence, 0) + 1" calculate="coalesce(instance('casedb')/casedb/case[@case_type = 'commcare-user'][hq_user_id = instance('commcaresession')/session/context/userid]/idSequence, 0) + 1" />
+			<bind vellum:nodeset="#form/var/signature" nodeset="/data/var/signature" vellum:calculate="#form/grp_resume/signature" calculate="/data/grp_resume/signature" />
+			<bind vellum:nodeset="#form/var/padded_idSequence" nodeset="/data/var/padded_idSequence" vellum:calculate="concat(substr('0000', 0, max(4 - string-length(#form/var/idSequence), 0)), #form/var/idSequence)" calculate="concat(substr('0000', 0, max(4 - string-length(/data/var/idSequence), 0)), /data/var/idSequence)" />
+			<bind vellum:nodeset="#form/var/idworker" nodeset="/data/var/idworker" vellum:calculate="concat(#form/location_information/region_code, #form/location_information/district_code, #form/location_information/csi_code, #form/location_information/id_utilisateur, #form/var/padded_idSequence)" calculate="concat(/data/location_information/region_code, /data/location_information/district_code, /data/location_information/csi_code, /data/location_information/id_utilisateur, /data/var/padded_idSequence)" />
+			<bind vellum:nodeset="#form/var/statut" nodeset="/data/var/statut" calculate="&quot;créé&quot;" />
+			<bind vellum:nodeset="#form/var/date_enrolement" nodeset="/data/var/date_enrolement" calculate="today()" />
+			<bind vellum:nodeset="#form/var/date_enrolement_format" nodeset="/data/var/date_enrolement_format" calculate="format-date(today(), &quot;%e/%n/%Y&quot;)" />
+			<bind vellum:nodeset="#form/var/user_derniere_date_enrolement" nodeset="/data/var/user_derniere_date_enrolement" calculate="today()" />
+			<bind vellum:nodeset="#form/var/compte_enrolement_ajd" nodeset="/data/var/compte_enrolement_ajd" />
+			<bind vellum:nodeset="#form/var/nom_complet" nodeset="/data/var/nom_complet" vellum:calculate="concat(#form/grp_info_socio/worker_information/nom_majuscule, &quot; &quot;, #form/grp_info_socio/worker_information/prenom_format)" calculate="concat(/data/grp_info_socio/worker_information/nom_majuscule, &quot; &quot;, /data/grp_info_socio/worker_information/prenom_format)" />
+			<bind vellum:nodeset="#form/var/userid_c" nodeset="/data/var/userid_c" calculate="instance('commcaresession')/session/context/userid" />
+			<bind vellum:nodeset="#form/var/form_instance" nodeset="/data/var/form_instance" calculate="/data/meta/instanceID" />
+			<bind vellum:nodeset="#form/var/photo_signature" nodeset="/data/var/photo_signature" vellum:calculate="#form/grp_resume/signature" calculate="/data/grp_resume/signature" />
+			<bind vellum:nodeset="#form/var/url_photo_id" nodeset="/data/var/url_photo_id" vellum:calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/photo/worker_photo_value)" calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/photo/worker_photo_value)" />
+			<bind vellum:nodeset="#form/var/url_photo_nin" nodeset="/data/var/url_photo_nin" vellum:calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/grp_identite/piece_valide_grp/photo_nin_value)" calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/grp_identite/piece_valide_grp/photo_nin_value)" />
+			<bind vellum:nodeset="#form/var/url_photo_signature" nodeset="/data/var/url_photo_signature" vellum:calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/var/photo_signature)" calculate="concat(&quot;https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/var/photo_signature)" />
+			<bind vellum:nodeset="#form/var/url_photo_id_ucr" nodeset="/data/var/url_photo_id_ucr" vellum:calculate="concat(&quot;[Voir Photo Travailleur](https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/photo/worker_photo_value, &quot;)&quot;)" calculate="concat(&quot;[Voir Photo Travailleur](https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/photo/worker_photo_value, &quot;)&quot;)" />
+			<bind vellum:nodeset="#form/var/url_photo_nin_ucr" nodeset="/data/var/url_photo_nin_ucr" vellum:calculate="concat(&quot;[Voir Pièce d'identité](https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/grp_identite/piece_valide_grp/photo_nin_value, &quot;)&quot;)" calculate="concat(&quot;[Voir Pièce d'identité](https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/grp_identite/piece_valide_grp/photo_nin_value, &quot;)&quot;)" />
+			<bind vellum:nodeset="#form/var/url_photo_signature_ucr" nodeset="/data/var/url_photo_signature_ucr" vellum:calculate="concat(&quot;[Voir Signature](https://www.commcarehq.org/a/&quot;, #form/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, #form/var/photo_signature, &quot;)&quot;)" calculate="concat(&quot;[Voir Signature](https://www.commcarehq.org/a/&quot;, /data/var/commcare_project, &quot;/api/form/attachment/&quot;, /data/meta/instanceID, &quot;/&quot;, /data/var/photo_signature, &quot;)&quot;)" />
+			<bind vellum:nodeset="#form/var/nom_unique" nodeset="/data/var/nom_unique" vellum:calculate="concat(#form/var/nom_complet, &quot; - &quot;, #form/contact/telephone_mm, &quot; - &quot;, #form/grp_resume/date_dob_display)" calculate="concat(/data/var/nom_complet, &quot; - &quot;, /data/contact/telephone_mm, &quot; - &quot;, /data/grp_resume/date_dob_display)" />
+			<bind vellum:nodeset="#form/var/concat_nom_prenom_dob" nodeset="/data/var/concat_nom_prenom_dob" vellum:calculate="replace(replace(concat(upper-case(#form/grp_info_socio/worker_information/nom), upper-case(#form/grp_info_socio/worker_information/prenom), #form/grp_info_socio/worker_information/date_de_naissance), &quot; &quot;, ''), &quot;-&quot;, '')" calculate="replace(replace(concat(upper-case(/data/grp_info_socio/worker_information/nom), upper-case(/data/grp_info_socio/worker_information/prenom), /data/grp_info_socio/worker_information/date_de_naissance), &quot; &quot;, ''), &quot;-&quot;, '')" />
+			<bind vellum:nodeset="#form/var/gps" nodeset="/data/var/gps" />
+			<bind vellum:nodeset="#form/var/gps/commcare_gps_point" nodeset="/data/var/gps/commcare_gps_point" calculate="/data/meta/location" />
+			<bind vellum:nodeset="#form/var/gps/gps_latitude" nodeset="/data/var/gps/gps_latitude" vellum:calculate="if(#form/var/gps/commcare_gps_point = '', '', selected-at(#form/var/gps/commcare_gps_point, 0))" calculate="if(/data/var/gps/commcare_gps_point = '', '', selected-at(/data/var/gps/commcare_gps_point, 0))" />
+			<bind vellum:nodeset="#form/var/gps/gps_longitude" nodeset="/data/var/gps/gps_longitude" vellum:calculate="if(#form/var/gps/commcare_gps_point = '', '', selected-at(#form/var/gps/commcare_gps_point, 1))" calculate="if(/data/var/gps/commcare_gps_point = '', '', selected-at(/data/var/gps/commcare_gps_point, 1))" />
+			<bind vellum:nodeset="#form/var/gps/gps_precision" nodeset="/data/var/gps/gps_precision" vellum:calculate="if(#form/var/gps/commcare_gps_point = '', '', selected-at(#form/var/gps/commcare_gps_point, 3))" calculate="if(/data/var/gps/commcare_gps_point = '', '', selected-at(/data/var/gps/commcare_gps_point, 3))" />
+			<bind vellum:nodeset="#form/kyc_status" nodeset="/data/kyc_status" vellum:calculate="if(#form/location_information/pays_code != 'tchad_pays', 'OK', '')" calculate="if(/data/location_information/pays_code != 'tchad_pays', 'OK', '')" />
+			<bind vellum:nodeset="#form/kyc_comment" nodeset="/data/kyc_comment" />
+			<bind vellum:nodeset="#form/location_information" nodeset="/data/location_information" />
+			<bind vellum:nodeset="#form/location_information/location_id" nodeset="/data/location_information/location_id" calculate="instance('commcaresession')/session/user/data/commcare_location_id" />
+			<bind vellum:nodeset="#form/location_information/location_code" nodeset="/data/location_information/location_code" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/site_code" />
+			<bind vellum:nodeset="#form/location_information/location_type" nodeset="/data/location_information/location_type" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/location_id]/@type" calculate="instance('locations')/locations/location[@id = /data/location_information/location_id]/@type" />
+			<bind vellum:nodeset="#form/location_information/location_nom" nodeset="/data/location_information/location_nom" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/name" />
+			<bind vellum:nodeset="#form/location_information/pays_id" nodeset="/data/location_information/pays_id" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/@pays_id" />
+			<bind vellum:nodeset="#form/location_information/pays_code" nodeset="/data/location_information/pays_code" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/pays_id]/site_code" calculate="instance('locations')/locations/location[@id = /data/location_information/pays_id]/site_code" />
+			<bind vellum:nodeset="#form/location_information/pays_nom" nodeset="/data/location_information/pays_nom" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/pays_id]/name" calculate="instance('locations')/locations/location[@id = /data/location_information/pays_id]/name" />
+			<bind vellum:nodeset="#form/location_information/region_id" nodeset="/data/location_information/region_id" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/@province_id" />
+			<bind vellum:nodeset="#form/location_information/region_nom" nodeset="/data/location_information/region_nom" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/region_id]/name" calculate="instance('locations')/locations/location[@id = /data/location_information/region_id]/name" />
+			<bind vellum:nodeset="#form/location_information/region_code" nodeset="/data/location_information/region_code" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/region_id]/site_code" calculate="instance('locations')/locations/location[@id = /data/location_information/region_id]/site_code" />
+			<bind vellum:nodeset="#form/location_information/district_id" nodeset="/data/location_information/district_id" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/@district_id" />
+			<bind vellum:nodeset="#form/location_information/district_code" nodeset="/data/location_information/district_code" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/district_id]/site_code" calculate="instance('locations')/locations/location[@id = /data/location_information/district_id]/site_code" />
+			<bind vellum:nodeset="#form/location_information/district_nom" nodeset="/data/location_information/district_nom" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/district_id]/name" calculate="instance('locations')/locations/location[@id = /data/location_information/district_id]/name" />
+			<bind vellum:nodeset="#form/location_information/csi_id" nodeset="/data/location_information/csi_id" calculate="instance('locations')/locations/location[@id = instance('commcaresession')/session/user/data/commcare_location_id]/@centre_sante_id" />
+			<bind vellum:nodeset="#form/location_information/csi_code" nodeset="/data/location_information/csi_code" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/csi_id]/site_code" calculate="instance('locations')/locations/location[@id = /data/location_information/csi_id]/site_code" />
+			<bind vellum:nodeset="#form/location_information/csi_nom" nodeset="/data/location_information/csi_nom" vellum:calculate="instance('locations')/locations/location[@id = #form/location_information/csi_id]/name" calculate="instance('locations')/locations/location[@id = /data/location_information/csi_id]/name" />
+			<bind vellum:nodeset="#form/location_information/worker_location_id" nodeset="/data/location_information/worker_location_id" vellum:calculate="#form/location_information/location_id" calculate="/data/location_information/location_id" />
+			<bind vellum:nodeset="#form/location_information/worker_location_code" nodeset="/data/location_information/worker_location_code" vellum:calculate="#form/location_information/location_code" calculate="/data/location_information/location_code" />
+			<bind vellum:nodeset="#form/location_information/worker_location_nom" nodeset="/data/location_information/worker_location_nom" vellum:calculate="#form/location_information/location_nom" calculate="/data/location_information/location_nom" />
+			<bind vellum:nodeset="#form/location_information/id_utilisateur" nodeset="/data/location_information/id_utilisateur" vellum:calculate="#user/username" calculate="instance('casedb')/casedb/case[@case_type = 'commcare-user'][hq_user_id = instance('commcaresession')/session/context/userid]/username" />
+			<bind vellum:nodeset="#form/location_information/deviceid" nodeset="/data/location_information/deviceid" calculate="instance('commcaresession')/session/context/deviceid" />
+			<bind vellum:nodeset="#form/grp_identite" nodeset="/data/grp_identite" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide" nodeset="/data/grp_identite/piece_valide" calculate="'oui'" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp" nodeset="/data/grp_identite/piece_valide_grp" vellum:relevant="#form/grp_identite/piece_valide = 'oui'" relevant="/data/grp_identite/piece_valide = 'oui'" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp/type_piece" nodeset="/data/grp_identite/piece_valide_grp/type_piece" vellum:relevant="#form/grp_identite/piece_valide = 'oui'" relevant="/data/grp_identite/piece_valide = 'oui'" required="true()" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp/nin_id" nodeset="/data/grp_identite/piece_valide_grp/nin_id" type="xsd:string" required="true()" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp/photo_nin" nodeset="/data/grp_identite/piece_valide_grp/photo_nin" type="binary" required="true()" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp/photo_nin_value" nodeset="/data/grp_identite/piece_valide_grp/photo_nin_value" vellum:calculate="#form/grp_identite/piece_valide_grp/photo_nin" calculate="/data/grp_identite/piece_valide_grp/photo_nin" />
+			<bind vellum:nodeset="#form/grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra" nodeset="/data/grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra" relevant="1 = 2" />
+			<bind vellum:nodeset="#form/grp_verification_nin" nodeset="/data/grp_verification_nin" vellum:relevant="#form/contact/nin_existe" relevant="/data/contact/nin_existe" />
+			<bind vellum:nodeset="#form/grp_verification_nin/label_deja_enregistre" nodeset="/data/grp_verification_nin/label_deja_enregistre" constraint="1 = 2" jr:constraintMsg="jr:itext('grp_verification_nin/label_deja_enregistre-constraintMsg')" vellum:relevant="#form/contact/nin_existe" relevant="/data/contact/nin_existe" />
+			<bind vellum:nodeset="#form/grp_verification_nin/warnning_deja_enregistre" nodeset="/data/grp_verification_nin/warnning_deja_enregistre" />
+			<bind vellum:nodeset="#form/grp_kyc_checks" nodeset="/data/grp_kyc_checks" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne" nodeset="/data/grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/op_telecom_mm_avec_piece" nodeset="/data/grp_kyc_checks/op_telecom_mm_avec_piece" vellum:relevant="#form/grp_identite/piece_valide = 'oui' and 1 = 2" relevant="/data/grp_identite/piece_valide = 'oui' and 1 = 2" required="true()" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/op_telecom_mobile_money" nodeset="/data/grp_kyc_checks/op_telecom_mobile_money" calculate="'moov'" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/op_telecom_mobile_money_display" nodeset="/data/grp_kyc_checks/op_telecom_mobile_money_display" vellum:calculate="cond(#form/grp_kyc_checks/op_telecom_mobile_money = 'airtel', 'Airtel Money', #form/grp_kyc_checks/op_telecom_mobile_money = 'moov', 'Moov Money', '')" calculate="cond(/data/grp_kyc_checks/op_telecom_mobile_money = 'airtel', 'Airtel Money', /data/grp_kyc_checks/op_telecom_mobile_money = 'moov', 'Moov Money', '')" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/op_telecom" nodeset="/data/grp_kyc_checks/op_telecom" calculate="'moov'" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/op_telecom_display" nodeset="/data/grp_kyc_checks/op_telecom_display" vellum:calculate="cond(#form/grp_kyc_checks/op_telecom = 'moov', &quot;Moov&quot;, #form/grp_kyc_checks/op_telecom = 'airtel', &quot;Airtel&quot;, '')" calculate="cond(/data/grp_kyc_checks/op_telecom = 'moov', &quot;Moov&quot;, /data/grp_kyc_checks/op_telecom = 'airtel', &quot;Airtel&quot;, '')" />
+			<bind vellum:nodeset="#form/grp_kyc_checks/kyc_validated_display" nodeset="/data/grp_kyc_checks/kyc_validated_display" calculate="1" />
+			<bind vellum:nodeset="#form/contact" nodeset="/data/contact" />
+			<bind vellum:nodeset="#form/contact/telephone_mm" nodeset="/data/contact/telephone_mm" type="xsd:string" constraint="string-length(.) = 8" jr:constraintMsg="jr:itext('contact/telephone_mm-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/contact/label_telco" nodeset="/data/contact/label_telco" constraint="1 = 2" vellum:relevant="((#form/grp_kyc_checks/op_telecom = 'moov' and not(#form/contact/moov_regex)) or (#form/grp_kyc_checks/op_telecom = 'airtel' and not(#form/contact/airtel_regex))) and string-length(#form/contact/telephone_mm) = 8" relevant="((/data/grp_kyc_checks/op_telecom = 'moov' and not(/data/contact/moov_regex)) or (/data/grp_kyc_checks/op_telecom = 'airtel' and not(/data/contact/airtel_regex))) and string-length(/data/contact/telephone_mm) = 8" />
+			<bind vellum:nodeset="#form/contact/label_deja_enregistre" nodeset="/data/contact/label_deja_enregistre" constraint="1 = 2" jr:constraintMsg="jr:itext('contact/label_deja_enregistre-constraintMsg')" vellum:relevant="#form/contact/numero_existe &gt; 0" relevant="/data/contact/numero_existe &gt; 0" />
+			<bind vellum:nodeset="#form/contact/moov_regex" nodeset="/data/contact/moov_regex" vellum:calculate="regex(#form/contact/telephone_mm, '^[39][0-9]{7}$')" calculate="regex(/data/contact/telephone_mm, '^[39][0-9]{7}$')" />
+			<bind vellum:nodeset="#form/contact/airtel_regex" nodeset="/data/contact/airtel_regex" vellum:calculate="regex(#form/contact/telephone_mm, '^[6][1-9][0-9]{6}$')" calculate="regex(/data/contact/telephone_mm, '^[6][1-9][0-9]{6}$')" />
+			<bind vellum:nodeset="#form/contact/numero_existe" nodeset="/data/contact/numero_existe" vellum:calculate="count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@external_id = #form/contact/telephone_mm][@status = 'open']/@case_id)" calculate="count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@external_id = /data/contact/telephone_mm][@status = 'open']/@case_id)" />
+			<bind vellum:nodeset="#form/contact/numero_existe_nom_complet" nodeset="/data/contact/numero_existe_nom_complet" vellum:calculate="if(#form/contact/numero_existe &gt; 0, instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@external_id = #form/contact/telephone_mm][@status = 'open']/nom_complet, '')" calculate="if(/data/contact/numero_existe &gt; 0, instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@external_id = /data/contact/telephone_mm][@status = 'open']/nom_complet, '')" />
+			<bind vellum:nodeset="#form/contact/nom_prenom_dob_existe" nodeset="/data/contact/nom_prenom_dob_existe" vellum:calculate="count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@state = #form/var/concat_nom_prenom_dob][@status = 'open']/@case_id) &gt; 0" calculate="count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@state = /data/var/concat_nom_prenom_dob][@status = 'open']/@case_id) &gt; 0" />
+			<bind vellum:nodeset="#form/contact/nin_existe" nodeset="/data/contact/nin_existe" vellum:calculate="#form/grp_identite/piece_valide_grp/nin_id != '' and count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@category = #form/grp_identite/piece_valide_grp/nin_id][@status = 'open']/@case_id) &gt; 0" calculate="/data/grp_identite/piece_valide_grp/nin_id != '' and count(instance('casedb')/casedb/case[@case_type = 'travailleur_nouveau'][@category = /data/grp_identite/piece_valide_grp/nin_id][@status = 'open']/@case_id) &gt; 0" />
+			<bind vellum:nodeset="#form/contact/telephone_indicatif" nodeset="/data/contact/telephone_indicatif" vellum:calculate="concat('235', #form/contact/telephone_mm)" calculate="concat('235', /data/contact/telephone_mm)" />
+			<bind vellum:nodeset="#form/contact/est_ce_que_ce_numero_vous_appartient" nodeset="/data/contact/est_ce_que_ce_numero_vous_appartient" required="true()" />
+			<bind vellum:nodeset="#form/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero" nodeset="/data/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero" vellum:relevant="#form/contact/est_ce_que_ce_numero_vous_appartient = 'non'" relevant="/data/contact/est_ce_que_ce_numero_vous_appartient = 'non'" required="true()" />
+			<bind vellum:nodeset="#form/contact/si_autres_dcrire_la_relation" nodeset="/data/contact/si_autres_dcrire_la_relation" type="xsd:string" vellum:relevant="#form/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero = 'autres'" relevant="/data/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero = 'autres'" required="true()" />
+			<bind vellum:nodeset="#form/contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero" nodeset="/data/contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero" type="xsd:string" vellum:relevant="#form/contact/est_ce_que_ce_numero_vous_appartient = 'non' and #form/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero != ''" relevant="/data/contact/est_ce_que_ce_numero_vous_appartient = 'non' and /data/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero != ''" required="true()" />
+			<bind vellum:nodeset="#form/contact/moov_kyc_code_display" nodeset="/data/contact/moov_kyc_code_display" vellum:relevant="#form/grp_kyc_checks/op_telecom_mm_avec_piece = 'moov' and #form/contact/est_ce_que_ce_numero_vous_appartient = 'oui'" relevant="/data/grp_kyc_checks/op_telecom_mm_avec_piece = 'moov' and /data/contact/est_ce_que_ce_numero_vous_appartient = 'oui'" />
+			<bind vellum:nodeset="#form/contact/airtel_kyc_code_display" nodeset="/data/contact/airtel_kyc_code_display" vellum:relevant="#form/grp_kyc_checks/op_telecom_mm_avec_piece = 'airtel' and #form/contact/est_ce_que_ce_numero_vous_appartient = 'oui'" relevant="/data/grp_kyc_checks/op_telecom_mm_avec_piece = 'airtel' and /data/contact/est_ce_que_ce_numero_vous_appartient = 'oui'" />
+			<bind vellum:nodeset="#form/grp_info_socio" nodeset="/data/grp_info_socio" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information" nodeset="/data/grp_info_socio/worker_information" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/nom" nodeset="/data/grp_info_socio/worker_information/nom" type="xsd:string" constraint="not(regex(., '[0-9]+'))" jr:constraintMsg="jr:itext('grp_info_socio/worker_information/nom-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/prenom" nodeset="/data/grp_info_socio/worker_information/prenom" type="xsd:string" constraint="not(regex(., '[0-9]+'))" jr:constraintMsg="jr:itext('grp_info_socio/worker_information/prenom-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/date_de_naissance" nodeset="/data/grp_info_socio/worker_information/date_de_naissance" type="xsd:date" constraint="not(int(today() - .) div 365.25 &lt; 18)" jr:constraintMsg="jr:itext('grp_info_socio/worker_information/date_de_naissance-constraintMsg')" required="true()" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/dob_display" nodeset="/data/grp_info_socio/worker_information/dob_display" vellum:calculate="format-date(#form/grp_info_socio/worker_information/date_de_naissance, '%e %b %Y')" calculate="format-date(/data/grp_info_socio/worker_information/date_de_naissance, '%e %b %Y')" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/lieu_naissance" nodeset="/data/grp_info_socio/worker_information/lieu_naissance" type="xsd:string" relevant="1 = 2" required="true()" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/nom_prenom_dob_existe_lbl" nodeset="/data/grp_info_socio/worker_information/nom_prenom_dob_existe_lbl" vellum:relevant="#form/contact/nom_prenom_dob_existe" relevant="/data/contact/nom_prenom_dob_existe" required="true()" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/nom_majuscule" nodeset="/data/grp_info_socio/worker_information/nom_majuscule" vellum:calculate="upper-case(#form/grp_info_socio/worker_information/nom)" calculate="upper-case(/data/grp_info_socio/worker_information/nom)" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/prenom_format" nodeset="/data/grp_info_socio/worker_information/prenom_format" vellum:calculate="concat(upper-case(substr(#form/grp_info_socio/worker_information/prenom, 0, 1)), lower-case(substr(#form/grp_info_socio/worker_information/prenom, 1, string-length(#form/grp_info_socio/worker_information/prenom))))" calculate="concat(upper-case(substr(/data/grp_info_socio/worker_information/prenom, 0, 1)), lower-case(substr(/data/grp_info_socio/worker_information/prenom, 1, string-length(/data/grp_info_socio/worker_information/prenom))))" />
+			<bind vellum:nodeset="#form/grp_info_socio/worker_information/lieu_naissance_maj" nodeset="/data/grp_info_socio/worker_information/lieu_naissance_maj" vellum:calculate="concat(upper-case(substr(#form/grp_info_socio/worker_information/lieu_naissance, 0, 1)), lower-case(substr(#form/grp_info_socio/worker_information/lieu_naissance, 1, string-length(#form/grp_info_socio/worker_information/lieu_naissance))))" calculate="concat(upper-case(substr(/data/grp_info_socio/worker_information/lieu_naissance, 0, 1)), lower-case(substr(/data/grp_info_socio/worker_information/lieu_naissance, 1, string-length(/data/grp_info_socio/worker_information/lieu_naissance))))" />
+			<bind vellum:nodeset="#form/grp_info_socio/gender" nodeset="/data/grp_info_socio/gender" required="true()" />
+			<bind vellum:nodeset="#form/photo" nodeset="/data/photo" />
+			<bind vellum:nodeset="#form/photo/photo" nodeset="/data/photo/photo" type="binary" required="true()" />
+			<bind vellum:nodeset="#form/photo/worker_photo_value" nodeset="/data/photo/worker_photo_value" vellum:calculate="#form/photo/photo" calculate="/data/photo/photo" />
+			<bind vellum:nodeset="#form/qualif_fonction" nodeset="/data/qualif_fonction" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction_type_code" nodeset="/data/qualif_fonction/fonction_type_code" required="true()" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction_type_code_display" nodeset="/data/qualif_fonction/fonction_type_code_display" vellum:calculate="instance('worker_fonction_type')/worker_fonction_type_list/worker_fonction_type[niveau = #form/location_information/location_type][types = #form/qualif_fonction/fonction_type_code]/types_label" calculate="instance('worker_fonction_type')/worker_fonction_type_list/worker_fonction_type[niveau = /data/location_information/location_type][types = /data/qualif_fonction/fonction_type_code]/types_label" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction_code" nodeset="/data/qualif_fonction/fonction_code" vellum:relevant="#form/qualif_fonction/fonction_type_code != ''" relevant="/data/qualif_fonction/fonction_type_code != ''" required="true()" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction_autre" nodeset="/data/qualif_fonction/fonction_autre" type="xsd:string" vellum:relevant="selected(#form/qualif_fonction/fonction_type_code, 'Autres')" relevant="selected(/data/qualif_fonction/fonction_type_code, 'Autres')" required="true()" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction" nodeset="/data/qualif_fonction/fonction" vellum:calculate="coalesce(#form/qualif_fonction/fonction_autre, #form/qualif_fonction/fonction_display)" calculate="coalesce(/data/qualif_fonction/fonction_autre, /data/qualif_fonction/fonction_display)" />
+			<bind vellum:nodeset="#form/qualif_fonction/fonction_display" nodeset="/data/qualif_fonction/fonction_display" vellum:calculate="instance('worker_fonction')/worker_fonction_list/worker_fonction[fonctions = #form/qualif_fonction/fonction_code][niveau = #form/location_information/location_type and types = #form/qualif_fonction/fonction_type_code]/fonctions_label" calculate="instance('worker_fonction')/worker_fonction_list/worker_fonction[fonctions = /data/qualif_fonction/fonction_code][niveau = /data/location_information/location_type and types = /data/qualif_fonction/fonction_type_code]/fonctions_label" />
+			<bind vellum:nodeset="#form/survey" nodeset="/data/survey" relevant="false()" />
+			<bind vellum:nodeset="#form/survey/nombre_de_spots" nodeset="/data/survey/nombre_de_spots" type="xsd:int" />
+			<bind vellum:nodeset="#form/grp_resume" nodeset="/data/grp_resume" />
+			<bind vellum:nodeset="#form/grp_resume/label_resume_1" nodeset="/data/grp_resume/label_resume_1" />
+			<bind vellum:nodeset="#form/grp_resume/consentement_worker" nodeset="/data/grp_resume/consentement_worker" required="true()" />
+			<bind vellum:nodeset="#form/grp_resume/signature" nodeset="/data/grp_resume/signature" type="binary" required="true()" />
+			<bind vellum:nodeset="#form/grp_resume/date_dob_display" nodeset="/data/grp_resume/date_dob_display" vellum:calculate="format-date(#form/grp_info_socio/worker_information/date_de_naissance, &quot;%e/%n/%Y&quot;)" calculate="format-date(/data/grp_info_socio/worker_information/date_de_naissance, &quot;%e/%n/%Y&quot;)" />
+			<bind vellum:nodeset="#form/properties_display" nodeset="/data/properties_display" />
+			<bind vellum:nodeset="#form/properties_display/type_piece_display" nodeset="/data/properties_display/type_piece_display" vellum:calculate="cond(#form/grp_identite/piece_valide_grp/type_piece = 'carte_identite', &quot;Carte d'identité Nationale&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'passeport', &quot;Passeport&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'carte_etudiant', &quot;Carte Etudiant&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'carte_scolaire', &quot;Carte Scolaire&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'carte_pro', &quot;Carte Professionnelle &quot;, #form/grp_identite/piece_valide_grp/type_piece = 'carte_etudiant', 'Carte Etudiant', #form/grp_identite/piece_valide_grp/type_piece = 'carte_delecteur', &quot;Carte D'Electeur&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'permis_conduire', &quot;Permis de Conduire&quot;, #form/grp_identite/piece_valide_grp/type_piece = 'recepiss_nni', &quot;Recepissé NNI&quot;, &quot;Autre&quot;)" calculate="cond(/data/grp_identite/piece_valide_grp/type_piece = 'carte_identite', &quot;Carte d'identité Nationale&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'passeport', &quot;Passeport&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'carte_etudiant', &quot;Carte Etudiant&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'carte_scolaire', &quot;Carte Scolaire&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'carte_pro', &quot;Carte Professionnelle &quot;, /data/grp_identite/piece_valide_grp/type_piece = 'carte_etudiant', 'Carte Etudiant', /data/grp_identite/piece_valide_grp/type_piece = 'carte_delecteur', &quot;Carte D'Electeur&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'permis_conduire', &quot;Permis de Conduire&quot;, /data/grp_identite/piece_valide_grp/type_piece = 'recepiss_nni', &quot;Recepissé NNI&quot;, &quot;Autre&quot;)" />
+			<bind vellum:nodeset="#form/properties_display/niveau_display" nodeset="/data/properties_display/niveau_display" vellum:calculate="#form/location_information/location_type" calculate="/data/location_information/location_type" />
+			<setvalue event="xforms-ready" vellum:ref="#form/var/commcare_project" ref="/data/var/commcare_project" value="instance('commcaresession')/session/user/data/commcare_project" />
+			<setvalue event="xforms-ready" vellum:ref="#form/kyc_comment" ref="/data/kyc_comment" value="''" />
+			<itext>
+				<translation lang="fra" default="">
+					<text id="var-label">
+						<value>var</value>
+					</text>
+					<text id="location_information-label">
+						<value>Location Information</value>
+					</text>
+					<text id="grp_identite-label">
+						<value>Identité</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-label">
+						<value>Type de pièce d'identité en cours de validité </value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-carte_etudiant-label">
+						<value>Carte Étudiant </value>
+						<value form="markdown">Carte Étudiant </value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-carte_scolaire-label">
+						<value>Carte Scolaire</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-carte_delecteur-label">
+						<value>Carte d'Electeur</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-acte_de_naissance-label">
+						<value>Acte de naissance</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-carte_identite-label">
+						<value>Carte Nationale d'Identité</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-carte_pro-label">
+						<value>Carte Professionnelle</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-passeport-label">
+						<value>Passeport</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-permis_conduire-label">
+						<value>Permis de Conduire</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/type_piece-recepiss_nni-label">
+						<value>Recepissé NNI</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/nin_id-label">
+						<value>Numéro de la pièce d'identité :</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/photo_nin-label">
+						<value>Prendre une photo de la pièce d'identité</value>
+					</text>
+					<text id="grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra-label">
+						<value>photo : <output value="/data/grp_identite/piece_valide_grp/photo_nin_value" vellum:value="#form/grp_identite/piece_valide_grp/photo_nin_value" />
+            </value>
+					</text>
+					<text id="grp_verification_nin-label">
+						<value>Vérification Pièce d'Identité</value>
+					</text>
+					<text id="grp_verification_nin/label_deja_enregistre-label">
+						<value>Le numéro d'Identification Nationale **<output value="/data/grp_identite/piece_valide_grp/nin_id" vellum:value="#form/grp_identite/piece_valide_grp/nin_id" />** a déjà été enregistré.
+
+Vous ne pouvez pas enregistrer la même personne plusieurs fois !!</value>
+						<value form="markdown">Le numéro d'Identification Nationale **<output value="/data/grp_identite/piece_valide_grp/nin_id" vellum:value="#form/grp_identite/piece_valide_grp/nin_id" />** a déjà été enregistré.
+
+Vous ne pouvez pas enregistrer la même personne plusieurs fois !!</value>
+					</text>
+					<text id="grp_verification_nin/label_deja_enregistre-constraintMsg">
+						<value>Le NIN a déjà été enregistré dans le système </value>
+					</text>
+					<text id="grp_verification_nin/warnning_deja_enregistre-label">
+						<value>Le NIN a déjà été enregistré dans le système !</value>
+					</text>
+					<text id="grp_kyc_checks-label">
+						<value>Opérateur de paiement</value>
+					</text>
+					<text id="grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne-label">
+						<value># Moov Sera L'Operateur pour le paiement de la campagne </value>
+						<value form="image">jr://file/commcare/image/data/grp_kyc_checks/undefined-79phxf.png</value>
+						<value form="markdown"># Moov Sera L'Operateur pour le paiement de la campagne </value>
+					</text>
+					<text id="grp_kyc_checks/op_telecom_mm_avec_piece-label">
+						<value>Opérateur de paiement ?</value>
+					</text>
+					<text id="grp_kyc_checks/op_telecom_mm_avec_piece-airtel-label">
+						<value>Airtel Money</value>
+					</text>
+					<text id="grp_kyc_checks/op_telecom_mm_avec_piece-moov-label">
+						<value>Moov Money</value>
+					</text>
+					<text id="contact-label">
+						<value>Contact</value>
+					</text>
+					<text id="contact/telephone_mm-label">
+						<value>Numéro de Téléphone Moov</value>
+					</text>
+					<text id="contact/telephone_mm-constraintMsg">
+						<value>Le numéro de téléphone n'a pas le bon format: il doit contenir 8 chiffres</value>
+					</text>
+					<text id="contact/label_telco-label">
+						<value>⚠️ Les deux premiers chiffres ne correspondent pas à l'opérateur téléphonique choisi (<output value="/data/grp_kyc_checks/op_telecom_display" vellum:value="#form/grp_kyc_checks/op_telecom_display" />).
+Merci de vérifier !</value>
+					</text>
+					<text id="contact/label_deja_enregistre-label">
+						<value>⚠️ Le numéro de téléphone **<output value="/data/contact/telephone_mm" vellum:value="#form/contact/telephone_mm" />** a déjà été enregistré au nom de **<output value="/data/contact/numero_existe_nom_complet" vellum:value="#form/contact/numero_existe_nom_complet" />**.
+
+Veuillez modifier le numéro de téléphone avant de continuer.</value>
+						<value form="markdown">⚠️ Le numéro de téléphone **<output value="/data/contact/telephone_mm" vellum:value="#form/contact/telephone_mm" />** a déjà été enregistré au nom de **<output value="/data/contact/numero_existe_nom_complet" vellum:value="#form/contact/numero_existe_nom_complet" />**.
+
+Veuillez modifier le numéro de téléphone avant de continuer.</value>
+					</text>
+					<text id="contact/label_deja_enregistre-constraintMsg">
+						<value>Le numéro de téléphone est déjà enregistré.</value>
+					</text>
+					<text id="contact/est_ce_que_ce_numero_vous_appartient-label">
+						<value>Est ce que ce numero vous appartient ?</value>
+					</text>
+					<text id="contact/est_ce_que_ce_numero_vous_appartient-oui-label">
+						<value>Oui</value>
+					</text>
+					<text id="contact/est_ce_que_ce_numero_vous_appartient-non-label">
+						<value>Non</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-label">
+						<value>Veuillez decrire la relation avec la personne qui detient le numero</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-pere__mere-label">
+						<value>Pere / Mere</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-fils__fille-label">
+						<value>Fils / Fille</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-oncle__tante-label">
+						<value>Oncle / Tante</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-cousin__cousine-label">
+						<value>Cousin / Cousine</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-neveu__niece-label">
+						<value>Neveu / Niece</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-ami__voisin-label">
+						<value>Ami / Voisin</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-collegue-label">
+						<value>Collegue</value>
+					</text>
+					<text id="contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-autres-label">
+						<value>Autres</value>
+					</text>
+					<text id="contact/si_autres_dcrire_la_relation-label">
+						<value>Si Autres, Décrire la relation:</value>
+					</text>
+					<text id="contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero-label">
+						<value>Veuillez entrer le nom Complet de la personne a qui appartient le numero :</value>
+					</text>
+					<text id="contact/moov_kyc_code_display-label">
+						<value>### Pour vérifier le KYC de MooV, **veuillez essayer ce code avec le telephone de l'acteur :**</value>
+						<value form="image">jr://file/commcare/image/data/contact/moov_kyc_code_display-mdedgg.png</value>
+						<value form="markdown">### Pour vérifier le KYC de MooV, **veuillez essayer ce code avec le telephone de l'acteur :**</value>
+					</text>
+					<text id="contact/airtel_kyc_code_display-label">
+						<value>### Pour vérifier le KYC de Airtel, **veuillez essayer ce code avec le telephone de l'acteur :**</value>
+						<value form="image">jr://file/commcare/image/data/contact/copy-1-of-moov_kyc_code_display-n2jce4.png</value>
+						<value form="markdown">### Pour vérifier le KYC de Airtel, **veuillez essayer ce code avec le telephone de l'acteur :**</value>
+					</text>
+					<text id="grp_info_socio-label">
+						<value>Infos socio-démographiques</value>
+					</text>
+					<text id="grp_info_socio/worker_information-label">
+						<value>Informations sur le travailleur</value>
+					</text>
+					<text id="grp_info_socio/worker_information/nom-label">
+						<value>Nom </value>
+					</text>
+					<text id="grp_info_socio/worker_information/nom-constraintMsg">
+						<value>Le nom ne doit pas contenir de chiffres.</value>
+					</text>
+					<text id="grp_info_socio/worker_information/prenom-label">
+						<value>Prénom</value>
+					</text>
+					<text id="grp_info_socio/worker_information/prenom-constraintMsg">
+						<value>Le nom ne doit pas contenir de chiffres.</value>
+					</text>
+					<text id="grp_info_socio/worker_information/date_de_naissance-label">
+						<value>Date de naissance</value>
+					</text>
+					<text id="grp_info_socio/worker_information/date_de_naissance-constraintMsg">
+						<value>L'acteur doit être âgé de 18 ans ou plus</value>
+					</text>
+					<text id="grp_info_socio/worker_information/lieu_naissance-label">
+						<value>Lieu de naissance</value>
+					</text>
+					<text id="grp_info_socio/worker_information/nom_prenom_dob_existe_lbl-label">
+						<value>Attention! Il existe déjà un acteur qui a le même nom (**<output value="/data/var/nom_complet" vellum:value="#form/var/nom_complet" />**) et la même date de naissance (**<output value="/data/grp_info_socio/worker_information/dob_display" vellum:value="#form/grp_info_socio/worker_information/dob_display" />**).
+
+Merci de vous assurer que cet acteur n'a jamais été enrôlé</value>
+						<value form="markdown">Attention! Il existe déjà un acteur qui a le même nom (**<output value="/data/var/nom_complet" vellum:value="#form/var/nom_complet" />**) et la même date de naissance (**<output value="/data/grp_info_socio/worker_information/dob_display" vellum:value="#form/grp_info_socio/worker_information/dob_display" />**).
+
+Merci de vous assurer que cet acteur n'a jamais été enrôlé</value>
+					</text>
+					<text id="grp_info_socio/worker_information/nom_prenom_dob_existe_lbl-oui-label">
+						<value>Oui</value>
+					</text>
+					<text id="grp_info_socio/gender-label">
+						<value>Genre</value>
+					</text>
+					<text id="grp_info_socio/gender-Homme-label">
+						<value>Homme</value>
+					</text>
+					<text id="grp_info_socio/gender-Femme-label">
+						<value>Femme</value>
+					</text>
+					<text id="photo-label">
+						<value>Photo de l'acteur </value>
+					</text>
+					<text id="photo/photo-label">
+						<value>Prendre une photo de l'acteur</value>
+					</text>
+					<text id="photo/photo-help">
+						<value>### DIRECTIVES POUR LES PHOTOS DE TRAVAILLEURS
+
+* Prenez des photos bien cadrées du visage, comme pour les photos d'identité.
+* La lumière doit être suffisante, ni trop sombre, ni trop claire.
+* Photo du visage
+* Sans lunettes, chapeau ...</value>
+						<value form="markdown">### DIRECTIVES POUR LES PHOTOS DE TRAVAILLEURS
+
+* Prenez des photos bien cadrées du visage, comme pour les photos d'identité.
+* La lumière doit être suffisante, ni trop sombre, ni trop claire.
+* Photo du visage
+* Sans lunettes, chapeau ...</value>
+					</text>
+					<text id="qualif_fonction-label">
+						<value>Fonction</value>
+					</text>
+					<text id="qualif_fonction/fonction_type_code-label">
+						<value>Catégorie de la fonction</value>
+					</text>
+					<text id="qualif_fonction/fonction_code-label">
+						<value>Fonction</value>
+					</text>
+					<text id="qualif_fonction/fonction_autre-label">
+						<value>Fonction :</value>
+					</text>
+					<text id="survey-label">
+						<value>Survey</value>
+					</text>
+					<text id="survey/nombre_de_spots-label">
+						<value>Combien d'endroits connaissez-vous où vous pourriez retirer de l'argent de votre compte d'argent mobile et par lesquels vous passez au cours d'une semaine donnée ?</value>
+					</text>
+					<text id="grp_resume-label">
+						<value>Résumé</value>
+					</text>
+					<text id="grp_resume/label_resume_1-label">
+						<value>## Résumé des Informations
+
+| Identité | _ |
+|:----:|:----|
+| Nom |  <output value="/data/var/nom_complet" vellum:value="#form/var/nom_complet" /> |
+| Sexe | <output value="/data/grp_info_socio/gender" vellum:value="#form/grp_info_socio/gender" /> |
+| Date de Naissance | <output value="/data/grp_resume/date_dob_display" vellum:value="#form/grp_resume/date_dob_display" /> |
+| Pièce d'Identité | <output value="/data/properties_display/type_piece_display" vellum:value="#form/properties_display/type_piece_display" /> - <output value="/data/grp_identite/piece_valide_grp/nin_id" vellum:value="#form/grp_identite/piece_valide_grp/nin_id" /> |
+
+***************************
+
+| Contact | _ |
+|:----:|:----|
+| Opérateur de paiement | <output value="/data/grp_kyc_checks/op_telecom_mobile_money_display" vellum:value="#form/grp_kyc_checks/op_telecom_mobile_money_display" /> |
+| Opérateur téléphonique | <output value="/data/grp_kyc_checks/op_telecom_display" vellum:value="#form/grp_kyc_checks/op_telecom_display" /> |
+| Téléphone | <output value="/data/contact/telephone_mm" vellum:value="#form/contact/telephone_mm" /> |
+
+***************************
+
+| Niveau/Fonction | _ |
+|:----:|:----|
+| Niveau de Rattachement |<output value="/data/location_information/worker_location_nom" vellum:value="#form/location_information/worker_location_nom" /> |
+| Catégorie de fonction | <output value="/data/qualif_fonction/fonction_type_code_display" vellum:value="#form/qualif_fonction/fonction_type_code_display" /> |
+| Fonction |<output value="/data/qualif_fonction/fonction" vellum:value="#form/qualif_fonction/fonction" /> |</value>
+						<value form="markdown">## Résumé des Informations
+
+| Identité | _ |
+|:----:|:----|
+| Nom |  <output value="/data/var/nom_complet" vellum:value="#form/var/nom_complet" /> |
+| Sexe | <output value="/data/grp_info_socio/gender" vellum:value="#form/grp_info_socio/gender" /> |
+| Date de Naissance | <output value="/data/grp_resume/date_dob_display" vellum:value="#form/grp_resume/date_dob_display" /> |
+| Pièce d'Identité | <output value="/data/properties_display/type_piece_display" vellum:value="#form/properties_display/type_piece_display" /> - <output value="/data/grp_identite/piece_valide_grp/nin_id" vellum:value="#form/grp_identite/piece_valide_grp/nin_id" /> |
+
+***************************
+
+| Contact | _ |
+|:----:|:----|
+| Opérateur de paiement | <output value="/data/grp_kyc_checks/op_telecom_mobile_money_display" vellum:value="#form/grp_kyc_checks/op_telecom_mobile_money_display" /> |
+| Opérateur téléphonique | <output value="/data/grp_kyc_checks/op_telecom_display" vellum:value="#form/grp_kyc_checks/op_telecom_display" /> |
+| Téléphone | <output value="/data/contact/telephone_mm" vellum:value="#form/contact/telephone_mm" /> |
+
+***************************
+
+| Niveau/Fonction | _ |
+|:----:|:----|
+| Niveau de Rattachement |<output value="/data/location_information/worker_location_nom" vellum:value="#form/location_information/worker_location_nom" /> |
+| Catégorie de fonction | <output value="/data/qualif_fonction/fonction_type_code_display" vellum:value="#form/qualif_fonction/fonction_type_code_display" /> |
+| Fonction |<output value="/data/qualif_fonction/fonction" vellum:value="#form/qualif_fonction/fonction" /> |</value>
+					</text>
+					<text id="grp_resume/consentement_worker-label">
+						<value>Les informations ci-dessus sont-elles correctes ?</value>
+					</text>
+					<text id="grp_resume/consentement_worker-okay-label">
+						<value>Oui</value>
+					</text>
+					<text id="grp_resume/signature-label">
+						<value>Signature de l'acteur</value>
+					</text>
+				</translation>
+			</itext>
+		</model>
+		<vellum:hashtags>{&quot;#user/idSequence&quot;:null,&quot;#user/username&quot;:null}</vellum:hashtags>
+		<vellum:hashtagTransforms>{&quot;prefixes&quot;:{&quot;#user/&quot;:&quot;instance('casedb')/casedb/case[@case_type = 'commcare-user'][hq_user_id = instance('commcaresession')/session/context/userid]/&quot;}}</vellum:hashtagTransforms>
+	</h:head>
+	<h:body>
+		<group vellum:ref="#form/var" ref="/data/var">
+			<label ref="jr:itext('var-label')" />
+			<group vellum:ref="#form/var/gps" ref="/data/var/gps" />
+		</group>
+		<group vellum:ref="#form/location_information" ref="/data/location_information" appearance="field-list">
+			<label ref="jr:itext('location_information-label')" />
+		</group>
+		<group vellum:ref="#form/grp_identite" ref="/data/grp_identite" appearance="field-list">
+			<label ref="jr:itext('grp_identite-label')" />
+			<group vellum:ref="#form/grp_identite/piece_valide_grp" ref="/data/grp_identite/piece_valide_grp">
+				<select1 vellum:ref="#form/grp_identite/piece_valide_grp/type_piece" ref="/data/grp_identite/piece_valide_grp/type_piece">
+					<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-label')" />
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-carte_etudiant-label')" />
+						<value>carte_etudiant</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-carte_scolaire-label')" />
+						<value>carte_scolaire</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-carte_delecteur-label')" />
+						<value>carte_delecteur</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-acte_de_naissance-label')" />
+						<value>acte_de_naissance</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-carte_identite-label')" />
+						<value>carte_identite</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-carte_pro-label')" />
+						<value>carte_pro</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-passeport-label')" />
+						<value>passeport</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-permis_conduire-label')" />
+						<value>permis_conduire</value>
+					</item>
+					<item>
+						<label ref="jr:itext('grp_identite/piece_valide_grp/type_piece-recepiss_nni-label')" />
+						<value>recepiss_nni</value>
+					</item>
+				</select1>
+				<input vellum:ref="#form/grp_identite/piece_valide_grp/nin_id" ref="/data/grp_identite/piece_valide_grp/nin_id">
+					<label ref="jr:itext('grp_identite/piece_valide_grp/nin_id-label')" />
+				</input>
+				<upload mediatype="image/*" jr:imageDimensionScaledMax="1000px" vellum:ref="#form/grp_identite/piece_valide_grp/photo_nin" ref="/data/grp_identite/piece_valide_grp/photo_nin" appearance="acquire">
+					<label ref="jr:itext('grp_identite/piece_valide_grp/photo_nin-label')" />
+				</upload>
+				<trigger vellum:ref="#form/grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra" ref="/data/grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra" appearance="minimal">
+					<label ref="jr:itext('grp_identite/piece_valide_grp/photo__output_valuedatagrp_identitephoto_value__fra-label')" />
+				</trigger>
+			</group>
+		</group>
+		<group vellum:ref="#form/grp_verification_nin" ref="/data/grp_verification_nin" appearance="field-list">
+			<label ref="jr:itext('grp_verification_nin-label')" />
+			<trigger vellum:ref="#form/grp_verification_nin/label_deja_enregistre" ref="/data/grp_verification_nin/label_deja_enregistre" appearance="minimal">
+				<label ref="jr:itext('grp_verification_nin/label_deja_enregistre-label')" />
+				<alert ref="jr:itext('grp_verification_nin/label_deja_enregistre-constraintMsg')" />
+			</trigger>
+			<trigger vellum:ref="#form/grp_verification_nin/warnning_deja_enregistre" ref="/data/grp_verification_nin/warnning_deja_enregistre" appearance="floating-bad">
+				<label ref="jr:itext('grp_verification_nin/warnning_deja_enregistre-label')" />
+			</trigger>
+		</group>
+		<group vellum:ref="#form/grp_kyc_checks" ref="/data/grp_kyc_checks" appearance="field-list">
+			<label ref="jr:itext('grp_kyc_checks-label')" />
+			<trigger vellum:ref="#form/grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne" ref="/data/grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne" appearance="minimal">
+				<label ref="jr:itext('grp_kyc_checks/moov_sera_loperateur_pour_le_paiement_de_la_campagne-label')" />
+			</trigger>
+			<select1 vellum:ref="#form/grp_kyc_checks/op_telecom_mm_avec_piece" ref="/data/grp_kyc_checks/op_telecom_mm_avec_piece">
+				<label ref="jr:itext('grp_kyc_checks/op_telecom_mm_avec_piece-label')" />
+				<item>
+					<label ref="jr:itext('grp_kyc_checks/op_telecom_mm_avec_piece-airtel-label')" />
+					<value>airtel</value>
+				</item>
+				<item>
+					<label ref="jr:itext('grp_kyc_checks/op_telecom_mm_avec_piece-moov-label')" />
+					<value>moov</value>
+				</item>
+			</select1>
+		</group>
+		<group vellum:ref="#form/contact" ref="/data/contact" appearance="field-list">
+			<label ref="jr:itext('contact-label')" />
+			<input vellum:ref="#form/contact/telephone_mm" ref="/data/contact/telephone_mm" appearance="numeric">
+				<label ref="jr:itext('contact/telephone_mm-label')" />
+				<alert ref="jr:itext('contact/telephone_mm-constraintMsg')" />
+			</input>
+			<trigger vellum:ref="#form/contact/label_telco" ref="/data/contact/label_telco" appearance="minimal">
+				<label ref="jr:itext('contact/label_telco-label')" />
+			</trigger>
+			<trigger vellum:ref="#form/contact/label_deja_enregistre" ref="/data/contact/label_deja_enregistre" appearance="minimal">
+				<label ref="jr:itext('contact/label_deja_enregistre-label')" />
+				<alert ref="jr:itext('contact/label_deja_enregistre-constraintMsg')" />
+			</trigger>
+			<select1 vellum:ref="#form/contact/est_ce_que_ce_numero_vous_appartient" ref="/data/contact/est_ce_que_ce_numero_vous_appartient">
+				<label ref="jr:itext('contact/est_ce_que_ce_numero_vous_appartient-label')" />
+				<item>
+					<label ref="jr:itext('contact/est_ce_que_ce_numero_vous_appartient-oui-label')" />
+					<value>oui</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/est_ce_que_ce_numero_vous_appartient-non-label')" />
+					<value>non</value>
+				</item>
+			</select1>
+			<select1 vellum:ref="#form/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero" ref="/data/contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero">
+				<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-label')" />
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-pere__mere-label')" />
+					<value>pere__mere</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-fils__fille-label')" />
+					<value>fils__fille</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-oncle__tante-label')" />
+					<value>oncle__tante</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-cousin__cousine-label')" />
+					<value>cousin__cousine</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-neveu__niece-label')" />
+					<value>neveu__niece</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-ami__voisin-label')" />
+					<value>ami__voisin</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-collegue-label')" />
+					<value>collegue</value>
+				</item>
+				<item>
+					<label ref="jr:itext('contact/veuillez_decrire_la_relation_avec_la_personne_qui_detient_le_numero-autres-label')" />
+					<value>autres</value>
+				</item>
+			</select1>
+			<input vellum:ref="#form/contact/si_autres_dcrire_la_relation" ref="/data/contact/si_autres_dcrire_la_relation">
+				<label ref="jr:itext('contact/si_autres_dcrire_la_relation-label')" />
+			</input>
+			<input vellum:ref="#form/contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero" ref="/data/contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero">
+				<label ref="jr:itext('contact/veuillez_entrer_le_nom_complet_de_la_personne_a_qui_appartient_le_numero-label')" />
+			</input>
+			<trigger vellum:ref="#form/contact/moov_kyc_code_display" ref="/data/contact/moov_kyc_code_display" appearance="minimal">
+				<label ref="jr:itext('contact/moov_kyc_code_display-label')" />
+			</trigger>
+			<trigger vellum:ref="#form/contact/airtel_kyc_code_display" ref="/data/contact/airtel_kyc_code_display" appearance="minimal">
+				<label ref="jr:itext('contact/airtel_kyc_code_display-label')" />
+			</trigger>
+		</group>
+		<group vellum:ref="#form/grp_info_socio" ref="/data/grp_info_socio">
+			<label ref="jr:itext('grp_info_socio-label')" />
+			<group vellum:ref="#form/grp_info_socio/worker_information" ref="/data/grp_info_socio/worker_information" appearance="field-list">
+				<label ref="jr:itext('grp_info_socio/worker_information-label')" />
+				<input vellum:ref="#form/grp_info_socio/worker_information/nom" ref="/data/grp_info_socio/worker_information/nom">
+					<label ref="jr:itext('grp_info_socio/worker_information/nom-label')" />
+					<alert ref="jr:itext('grp_info_socio/worker_information/nom-constraintMsg')" />
+				</input>
+				<input vellum:ref="#form/grp_info_socio/worker_information/prenom" ref="/data/grp_info_socio/worker_information/prenom">
+					<label ref="jr:itext('grp_info_socio/worker_information/prenom-label')" />
+					<alert ref="jr:itext('grp_info_socio/worker_information/prenom-constraintMsg')" />
+				</input>
+				<input vellum:ref="#form/grp_info_socio/worker_information/date_de_naissance" ref="/data/grp_info_socio/worker_information/date_de_naissance">
+					<label ref="jr:itext('grp_info_socio/worker_information/date_de_naissance-label')" />
+					<alert ref="jr:itext('grp_info_socio/worker_information/date_de_naissance-constraintMsg')" />
+				</input>
+				<input vellum:ref="#form/grp_info_socio/worker_information/lieu_naissance" ref="/data/grp_info_socio/worker_information/lieu_naissance">
+					<label ref="jr:itext('grp_info_socio/worker_information/lieu_naissance-label')" />
+				</input>
+				<select vellum:ref="#form/grp_info_socio/worker_information/nom_prenom_dob_existe_lbl" ref="/data/grp_info_socio/worker_information/nom_prenom_dob_existe_lbl">
+					<label ref="jr:itext('grp_info_socio/worker_information/nom_prenom_dob_existe_lbl-label')" />
+					<item>
+						<label ref="jr:itext('grp_info_socio/worker_information/nom_prenom_dob_existe_lbl-oui-label')" />
+						<value>oui</value>
+					</item>
+				</select>
+			</group>
+			<select1 vellum:ref="#form/grp_info_socio/gender" ref="/data/grp_info_socio/gender">
+				<label ref="jr:itext('grp_info_socio/gender-label')" />
+				<item>
+					<label ref="jr:itext('grp_info_socio/gender-Homme-label')" />
+					<value>Homme</value>
+				</item>
+				<item>
+					<label ref="jr:itext('grp_info_socio/gender-Femme-label')" />
+					<value>Femme</value>
+				</item>
+			</select1>
+		</group>
+		<group vellum:ref="#form/photo" ref="/data/photo" appearance="field-list">
+			<label ref="jr:itext('photo-label')" />
+			<upload mediatype="image/*" jr:imageDimensionScaledMax="1000px" vellum:ref="#form/photo/photo" ref="/data/photo/photo">
+				<label ref="jr:itext('photo/photo-label')" />
+				<help ref="jr:itext('photo/photo-help')" />
+			</upload>
+		</group>
+		<group vellum:ref="#form/qualif_fonction" ref="/data/qualif_fonction" appearance="field-list">
+			<label ref="jr:itext('qualif_fonction-label')" />
+			<select1 vellum:ref="#form/qualif_fonction/fonction_type_code" ref="/data/qualif_fonction/fonction_type_code">
+				<label ref="jr:itext('qualif_fonction/fonction_type_code-label')" />
+				<itemset nodeset="instance('worker_fonction_type')/worker_fonction_type_list/worker_fonction_type[niveau = /data/location_information/location_type]" vellum:nodeset="instance('worker_fonction_type')/worker_fonction_type_list/worker_fonction_type[niveau = #form/location_information/location_type]">
+					<label ref="types_label" />
+					<value ref="types" />
+					<sort ref="types_label" />
+				</itemset>
+			</select1>
+			<select1 vellum:ref="#form/qualif_fonction/fonction_code" ref="/data/qualif_fonction/fonction_code">
+				<label ref="jr:itext('qualif_fonction/fonction_code-label')" />
+				<itemset nodeset="instance('worker_fonction')/worker_fonction_list/worker_fonction[niveau = /data/location_information/location_type and types = /data/qualif_fonction/fonction_type_code]" vellum:nodeset="instance('worker_fonction')/worker_fonction_list/worker_fonction[niveau = #form/location_information/location_type and types = #form/qualif_fonction/fonction_type_code]">
+					<label ref="fonctions_label" />
+					<value ref="fonctions" />
+					<sort ref="fonctions_label" />
+				</itemset>
+			</select1>
+			<input vellum:ref="#form/qualif_fonction/fonction_autre" ref="/data/qualif_fonction/fonction_autre">
+				<label ref="jr:itext('qualif_fonction/fonction_autre-label')" />
+			</input>
+		</group>
+		<group vellum:ref="#form/survey" ref="/data/survey" appearance="field-list">
+			<label ref="jr:itext('survey-label')" />
+			<input vellum:ref="#form/survey/nombre_de_spots" ref="/data/survey/nombre_de_spots">
+				<label ref="jr:itext('survey/nombre_de_spots-label')" />
+			</input>
+		</group>
+		<group vellum:ref="#form/grp_resume" ref="/data/grp_resume" appearance="field-list">
+			<label ref="jr:itext('grp_resume-label')" />
+			<trigger vellum:ref="#form/grp_resume/label_resume_1" ref="/data/grp_resume/label_resume_1" appearance="minimal">
+				<label ref="jr:itext('grp_resume/label_resume_1-label')" />
+			</trigger>
+			<select vellum:ref="#form/grp_resume/consentement_worker" ref="/data/grp_resume/consentement_worker">
+				<label ref="jr:itext('grp_resume/consentement_worker-label')" />
+				<item>
+					<label ref="jr:itext('grp_resume/consentement_worker-okay-label')" />
+					<value>okay</value>
+				</item>
+			</select>
+			<upload mediatype="image/*" vellum:ref="#form/grp_resume/signature" ref="/data/grp_resume/signature" appearance="signature">
+				<label ref="jr:itext('grp_resume/signature-label')" />
+			</upload>
+		</group>
+		<group vellum:ref="#form/properties_display" ref="/data/properties_display" />
+	</h:body>
+</h:html>
